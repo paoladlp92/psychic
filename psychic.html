@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Psychic</title>
+</head>
+
+<body>
+
+    <style>
+body {background:rgb(67, 67, 129);}
+
+        
+        </style>
+
+    <div id="game">
+        <p id="outcome"></p>
+    </div>
+    <h1>Psychic!</h1>
+    <script type="text/javascript">
+
+
+        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "t", "s", "t", "u", "v", "w", "x", "y", "z"];
+var losepoints = 0;
+
+var winpoints = 0;
+
+        document.onkeyup = function (event) {
+
+            // Determines which key was pressed.
+            var userGuess = event.key;
+
+            // Randomly chooses a choice from the options array. This is the Computer's guess.
+            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            var outcomeText = document.getElementById('outcome');
+        
+
+           
+            var outcomeText = document.getElementById('outcome');
+          
+            outcomeText.innerText = "winpoints: "+ winpoints +"losepoints: " + losepoints;
+            outcomeText.innerText += "You guesses:" + userGuess + " computer thought: " + computerGuess;
+
+
+
+            if (userGuess == computerGuess) {
+                alert("you win!");
+                
+                winpoints++;
+
+            }
+
+            if (userGuess !== computerGuess) {
+                alert("wrong");
+           
+                losepoints++;
+                
+
+            }
+
+            if(winpoints==4) {
+
+      outcomeText.innerText = "U Champion!";
+      winpoints= 0;
+      outcomeText.innerText = "start over";
+            }
+
+             if(losepoints==4) {
+
+outcomeText.innerText = "U Loser!";
+losepoints= 0;
+outcomeText.innerText = "start over";
+      }
+
+
+
+
+
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
